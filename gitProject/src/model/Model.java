@@ -15,16 +15,16 @@ public class Model {
 		return model;
 	}
 	
-	public ArrayList<Product> getAllProduct() {
+	public static ArrayList<Product> getAllProduct() {
 		return db.getAllProduct();
 	}
 	
-	public void insertProduct(Product newProduct) {
-//		db.insertProduct(newProduct);
-		System.out.println(newProduct);
+	public static void insertProduct(Product newProduct) {
+		Database.insertProduct(newProduct);
+		
 	}
 	
-	public void updateProduct(int index, String product_name, int product_price, int product_kcal, int product_gram, String product_catagory) {
+	public static void updateProduct(int index, String product_name, int product_price, int product_kcal, int product_gram, String product_catagory) {
 		db.updateProduct(index, product_name, product_price, product_kcal, product_gram, product_catagory);
 	}
 	
@@ -33,29 +33,54 @@ public class Model {
 	}
 	
 	
+//	public static void cartInsertProduct(int id, ShoppingCart shoppingArray){ // 장바구니 추가
+//		
+//		ArrayList<Product> ownProduct = db.getAllProduct();
+//		
+//		
+//		Product temp = new Product(0, null, 0, 0, 0, null);
+//		
+//		for (int i = 0; i < ownProduct.size(); i++) {
+//			if (ownProduct.get(i).getId() == id) {
+//				
+//				System.out.println(ownProduct.get(i).getName() + "을(를) 담았습니다.\n");
+//				temp = ownProduct.get(i);
+//				break;
+//			} 
+//		}
+//		shoppingArray.getCart().add(temp);
+//	}
+	
+	
+	
 	public static void cartInsertProduct(int id, ShoppingCart shoppingArray){ // 장바구니 추가
 		
 		ArrayList<Product> ownProduct = db.getAllProduct();
+		int size = ownProduct.size();
 		
+		Product product = null;
 		
-		Product temp = new Product(0, null, 0, 0, 0, null);
-		
-		for (int i = 0; i < ownProduct.size(); i++) {
-			if (ownProduct.get(i).getId() == id) {
+		for (int i = 0; i < size; i++) {
+			product = ownProduct.get(i);
+			
+			if (product.getId() == id) {
 				
-				System.out.println(ownProduct.get(i).getName() + "을(를) 담았습니다.\n");
-				temp = ownProduct.get(i);
+				System.out.println(product.getName() + "을(를) 담았습니다.\n");
+				shoppingArray.getCart().add(product);
+				System.out.println("**** " + shoppingArray.getCart());
 				break;
 			} 
 		}
-		shoppingArray.getCart().add(temp);
 	}
+	
+	
+	
+	
+	
 	
 	public static void cartDeleteProduct(int id, ShoppingCart shoppingArray){ // 장바구니 제거
 		
 		ArrayList<Product> ownProduct = shoppingArray.getCart();
-		
-		Product temp = new Product(0, null, 0, 0, 0, null);
 		
 		for (int i = 0; i < ownProduct.size(); i++) {
 			if (ownProduct.get(i).getId() == id) {
@@ -80,9 +105,6 @@ public class Model {
 				System.out.println(b.toString());
 			}
 		}
-		
-		
-		
 	}
 	
 	

@@ -10,7 +10,7 @@ public class Database {
 	
 	static {
 		
-				// 곡물/시리얼류
+			// 곡물/시리얼류
 			productArray.add(new Product(1, "그래놀라", 2000, 55, 30, "곡물/시리얼류"));
 			productArray.add(new Product(2, "초코 그래놀라", 2200, 65, 30, "곡물/시리얼류"));
 			productArray.add(new Product(3, "오레오 오즈", 2000, 60, 25, "곡물/시리얼류"));
@@ -57,7 +57,7 @@ public class Database {
 	public ArrayList<Product> getAllProduct(){ //전체 항목 불러오기
 		return productArray;
 	}
-	public void insertProduct(Product newProduct) { // 객체를 추가
+	public static void insertProduct(Product newProduct) { // 객체를 추가
 		productArray.add(newProduct);
 	}
 	

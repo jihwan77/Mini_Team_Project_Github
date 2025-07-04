@@ -19,8 +19,23 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		return "상품번호 : " + "상품명 : " + "가격 : " + "kcal : " + "무게(g) : " + "카테고리 : ";
-		
+		StringBuilder builder = new StringBuilder();
+		builder.append("Product [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", price=");
+		builder.append(price);
+		builder.append(", kcal=");
+		builder.append(kcal);
+		builder.append(", gram=");
+		builder.append(gram);
+		builder.append(", catagory=");
+		builder.append(catagory);
+		builder.append("]");
+		return builder.toString();
 	}
+	
+	
 }
 

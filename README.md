@@ -1,1 +1,8 @@
-# Mini_Team_Project_Github
+# woorifisa_0_Mini_Team_Project_Github
+
+## 요아정 가격 칼로리 계산 프로그램
+
+---
+## 1. 개요
+### 사용자는 요아정에 대한 상품 목록을 볼 수 있고, 원하는 상품을 담아서 가격과 칼로리를 알 수 있고 주문할 수 있다.
+

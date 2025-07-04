@@ -54,7 +54,7 @@ public class Database {
 
 		}
 	
-	public static ArrayList<Product> getAllProduct(){
+	public static ArrayList<Product> getAllProduct(){ //전체 항목 불러오기
 		return productArray;
 	}
 	public static void insertProduct(Product newProduct) { // 객체를 추가

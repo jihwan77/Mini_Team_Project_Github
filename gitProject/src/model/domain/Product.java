@@ -16,4 +16,11 @@ public class Product {
 	private int kcal;
 	private int gram;
 	private String catagory;
+	
+	@Override
+	public String toString() {
+		return "상품번호 : " + "상품명 : " + "가격 : " + "kcal : " + "무게(g) : " + "카테고리 : ";
+		
+	}
 }
+

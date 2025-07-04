@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import model.domain.*;
 
 public class Model {
-	private Database db = new Database();
+	private static Database db = new Database();
 	
 	private static Model model = new Model();
 	
@@ -15,10 +15,27 @@ public class Model {
 		return model;
 	}
 	
+	public ArrayList<Product> getAllProduct() {
+		return db.getAllProduct();
+	}
+	
+	public void insertProduct(Product newProduct) {
+//		db.insertProduct(newProduct);
+		System.out.println(newProduct);
+	}
+	
+	public void updateProduct(int index, String product_name, int product_price, int product_kcal, int product_gram, String product_catagory) {
+		db.updateProduct(index, product_name, product_price, product_kcal, product_gram, product_catagory);
+	}
+	
+	public void deleteProduct(int index) {
+		db.deleteProduct(index);
+	}
+	
 	
 	public static void cartInsertProduct(int id, ShoppingCart shoppingArray){ // 장바구니 추가
 		
-		ArrayList<Product> ownProduct = Database.getAllProduct();
+		ArrayList<Product> ownProduct = db.getAllProduct();
 		
 		
 		Product temp = new Product(0, null, 0, 0, 0, null);
@@ -51,7 +68,7 @@ public class Model {
 		}
 	}
 		
-	
+
 	
 	public static void getCartProduct(ShoppingCart shoppingArray){
 		

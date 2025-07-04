@@ -54,15 +54,15 @@ public class Database {
 
 		}
 	
-	public static ArrayList<Product> getAllProduct(){ //전체 항목 불러오기
+	public ArrayList<Product> getAllProduct(){ //전체 항목 불러오기
 		return productArray;
 	}
-	public static void insertProduct(Product newProduct) { // 객체를 추가
+	public void insertProduct(Product newProduct) { // 객체를 추가
 		productArray.add(newProduct);
 	}
 	
 	
-	public static void updateProduct(int index, String product_name, int product_price, int product_kcal, int product_gram, String product_catagory) {
+	public void updateProduct(int index, String product_name, int product_price, int product_kcal, int product_gram, String product_catagory) {
 		Product pd = productArray.get(index);
 		pd.setName(product_name);
 		pd.setPrice(product_price);
@@ -73,7 +73,7 @@ public class Database {
 		productArray.add(pd);
 		
 	}// 변수값 수정
-	public static void deleteProduct(int index) { // 상품번호로 삭제
+	public void deleteProduct(int index) { // 상품번호로 삭제
 		productArray.remove(index);
 	}
 	

@@ -55,9 +55,10 @@ public class StartView {
 				
 				break;
 			case 3:
-//				System.out.print("제거할 상품 번호를 입력히세요 : ");
-//				 String cartList1 = sc.next();
-//				 Controller.returnBook(id);
+				 System.out.print("제거할 상품 번호를 입력하세요 : ");
+				 String productNumber2 = sc.next();
+				 int productId2 = Integer.parseInt(productNumber2);
+				 Controller.cartDeleteProduct(productId2, shoppingCart);
 				break;
 			case 4:
 				// userController.borrowBookList(nowUser);

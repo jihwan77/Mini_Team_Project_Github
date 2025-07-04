@@ -60,7 +60,11 @@ public class StartView {
 //				 Controller.returnBook(id);
 				break;
 			case 4:
-				// userController.borrowBookList(nowUser);
+				System.out.println("현재 장바구니 목록입니다 : ");
+				
+				Controller.getCartProduct(shoppingCart);
+				
+				
 				break;
 			case 5:
 

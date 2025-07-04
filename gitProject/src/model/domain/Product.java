@@ -33,6 +33,8 @@ public class Product {
 		builder.append(", catagory=");
 		builder.append(catagory);
 		builder.append("]");
+		builder.append("\n");
+
 		return builder.toString();
 	}
 	

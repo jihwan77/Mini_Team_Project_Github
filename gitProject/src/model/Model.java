@@ -98,13 +98,32 @@ public class Model {
 	public static void getCartProduct(ShoppingCart shoppingArray){
 		
 		ArrayList<Product> cartList = shoppingArray.getCart();
-		if(cartList.size() == 0) {
+		int size1 = cartList.size();
+		int totalPrice = 0;
+		int totalKcal = 0;
+		int totalGram = 0;
+		
+		
+		if(size1 == 0) {
 			System.out.println("현재 다음 목록이 없습니다.\n");
 		}else {
 			for (Product b : cartList) {
 				System.out.println(b.toString());
+				totalPrice += b.getPrice();
+				totalKcal += b.getKcal();
+				totalGram += b.getGram();
 			}
+			System.out.println("장바구니에 담은 상품은 " + size1 + "개 입니다.");
+			System.out.println("총 가격은 " + totalPrice + "원 입니다.");
+			System.out.println("총 칼로리는 " + totalKcal + "kcal 입니다.");
+			System.out.println("총 그램은 " + totalGram + "g 입니다.");
+			
+			
+			
+			
 		}
+		
+		
 	}
 	
 	

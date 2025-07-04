@@ -1,5 +1,5 @@
 package model.domain;
 
-public class UserDTO {
+public class Product {
 
 }

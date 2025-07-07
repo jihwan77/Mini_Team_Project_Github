@@ -49,8 +49,6 @@ public class StartView {
 				String productNumber = sc.next();
 				int productId = Integer.parseInt(productNumber);
 				
-				System.out.println("+++ " + shoppingCart.getCart());
-				
 				Controller.cartAddProduct(productId, shoppingCart);
 				
 				break;
@@ -92,17 +90,47 @@ public class StartView {
 				System.out.println("category 입력 : ");
 				String category = sc.next();
 				sc.nextLine();
-				System.out.println("다음 내용이 추가되었습니다.\n");
-				System.out.println("id : " + id + "name : " + name + "price : " + price + "kcal : " + kcal + "gram : " + gram + "category : " + category );
 				
 				Controller.addProduct(id, name, price, kcal, gram, category);
 
 				break;
-			case 6:
-
+			case 6: // 삭제 부분
+				System.out.println("삭제할 상품 정보를 입력하세요.\n");
+				System.out.println("id입력 : ");
+				id = sc.nextInt();
+				sc.nextLine();
+				Controller.deleteProduct(id);
+				//System.out.println("입력하신 "+ id + "가 삭제되었습니다!");
 				break;
-			case 7:
-
+			case 7: // 수정
+				System.out.println("수정을 원하는 상품의 id를 입력하시오.\n");
+				System.out.println("id입력 : ");
+				id = sc.nextInt();
+				sc.nextLine();
+			
+				System.out.println("상품명 입력 : ");
+				name = sc.next();
+				sc.nextLine();
+				
+				System.out.println("가격 입력 : ");
+				price = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("kcal 입력 : ");
+				kcal = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("gram 입력 : ");
+				gram = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("category 입력 : ");
+				category = sc.next();
+				sc.nextLine();
+				System.out.println("다음 내용이 추가되었습니다.\n");
+				System.out.println("id : " + id + ", name : " + name + ", price : " + price + ", kcal : " + kcal + ", gram : " + gram + ", category : " + category );
+				
+				Controller.updateProduct(id, name, price, kcal, gram, category);
 				break;
 			default:
 				System.out.println("잘못된 입력입니다. 다시 시도해주세요.\n");

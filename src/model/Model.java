@@ -28,11 +28,13 @@ public class Model {
 		
 		for(int i = 0; i < size; i++) {
 			if(productList.get(i).getId() == id) {
-				System.out.println("해당 목록의 상품번호가 존재합니다");
-				break;
+				System.out.println("해당 목록의 상품번호가 존재합니다\n");
+				return;
 			}
 			
 		}
+		System.out.println("다음 내용이 추가되었습니다.\n");
+		System.out.println("id : " + id + ", name : " + name + ", price : " + price + ", kcal : " + kcal + ", gram : " + gram + ", category : " + category );
 		Product newProduct = new Product(id, name, price, kcal, gram, category);
 		Database.addProduct(newProduct);
 		
@@ -47,11 +49,12 @@ public class Model {
 			if(productList.get(i).getId() == id) {
 				
 				Database.deleteProduct(i);// 몇번째 인덱스에 있는지 구해야함
-			}else {
-				System.out.println("해당 목록이 존재하지 않습니다");
-				
+				System.out.println("입력하신 "+ id + "가 삭제되었습니다!\n");
+				return;
 			}
+			
 		}
+		System.out.println("해당 목록이 존재하지 않습니다\n");
 			
 		
 	}
@@ -64,11 +67,11 @@ public class Model {
 			if(productList.get(i).getId() == id) {
 				
 				Database.updateProduct(i, name, price, kcal, gram, category);
-			}else {
-				System.out.println("해당 목록이 존재하지 않습니다");
-				
+				return;
 			}
+			
 		}
+		System.out.println("해당 목록이 존재하지 않습니다\n");
 		
 	}
 	
@@ -81,11 +84,12 @@ public class Model {
 		for(int i = 0; i < size; i ++) {
 			temp = cartList.get(i);
 			if(temp.getId() == id) {
-				System.out.println(temp.getName() + " 장바구니 추가");
+				System.out.println(temp.getName() + " 장바구니 추가\n");
 				shoppingArray.getCart().add(temp); // shoppingArray를 불러오고 추가
 				break;
 			}
 		}
+		System.out.println("해당 목록이 없어 장바구니에 담을 수 없습니다\n");
 	}
 	
 	public static void cartDeleteProduct(int id, ShoppingCart shoppingArray) {
@@ -95,11 +99,12 @@ public class Model {
 		
 		for(int i = 0; i < size; i++) {
 			if(cartList.get(i).getId() == id) {
-				System.out.println( cartList.get(i).getName() + " 장바구니에서 제거");
+				System.out.println( cartList.get(i).getName() + " 장바구니에서 제거\n");
 				cartList.remove(i); // 해당 index 데이터 제거
 				break;
 			}
 		}
+		System.out.println("해당 목록이 없어 장바구니에서 제외할게 없습니다\n");
 	}
 	
 	public static void showCartList(ShoppingCart shoppingArray) {
@@ -123,7 +128,7 @@ public class Model {
 			System.out.println("장바구니에 담은 상품은 " + size + "개 입니다.");
 			System.out.println("총 가격은 " + totalPrice + "원 입니다.");
 			System.out.println("총 칼로리는 " + totalKcal + "kcal 입니다.");
-			System.out.println("총 그램은 " + totalGram + "g 입니다.");
+			System.out.println("총 그램은 " + totalGram + "g 입니다.\n");
 	}
 }
 }

@@ -16,7 +16,7 @@ public class ShoppingCart {
 	private String name;
 	private int price;
 	private int kcal;
-	private int gram;
+	private int grams;
 	private String catagory;
 	ArrayList<Product> cart = new ArrayList<>();
 	
@@ -25,7 +25,7 @@ public class ShoppingCart {
 		this.name = name;
 		this.price = price;
 		this.kcal = kcal;
-		this.gram = gram;
+		this.grams = gram;
 		this.catagory = catagory;
 	
 	}

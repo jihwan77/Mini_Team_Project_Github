@@ -4,14 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.Data;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Data
-
 public class Product {
 	private int id;
 	private String name;
@@ -20,23 +17,6 @@ public class Product {
 	private int gram;
 	private String catagory;
 	
-//	public Product() { // 기본 생성자
-//		
-//	}
-//
-//	public Product(int i, String string, int j, int k, int l, String string2) { // 매개변수 가진 생성자
-//		this.id = i;
-//		this.name = string;
-//		this.price = j;
-//		this.kcal = k;
-//		this.gram = l;
-//		this.catagory = string2;
-//		
-//	}
-
-
-
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -60,3 +40,4 @@ public class Product {
 	
 	
 }
+

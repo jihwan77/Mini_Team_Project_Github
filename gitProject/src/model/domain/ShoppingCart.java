@@ -20,13 +20,13 @@ public class ShoppingCart {
 	private String catagory;
 	ArrayList<Product> cart = new ArrayList<>();
 	
-//	public ShoppingCart (int id, String name, int price, int kcal, int gram, String catagory) {
-//		this.id = id;
-//		this.name = name;
-//		this.price = price;
-//		this.kcal = kcal;
-//		this.gram = gram;
-//		this.catagory = catagory;
-//	
-//	}
+	public ShoppingCart (int id, String name, int price, int kcal, int gram, String catagory) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.kcal = kcal;
+		this.gram = gram;
+		this.catagory = catagory;
+	
+	}
 }

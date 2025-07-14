@@ -6,12 +6,11 @@ import model.domain.Product;
 
 public class Database {
 	
-private static ArrayList<Product> productArray = new ArrayList<>();
+	private static ArrayList<Product> productArray = new ArrayList<>();
 	
 	static {
 		
 			// 곡물/시리얼류
-		
 			productArray.add(new Product(1, "그래놀라", 2000, 55, 30, "곡물/시리얼류"));
 			productArray.add(new Product(2, "초코 그래놀라", 2200, 65, 30, "곡물/시리얼류"));
 			productArray.add(new Product(3, "오레오 오즈", 2000, 60, 25, "곡물/시리얼류"));
@@ -55,28 +54,27 @@ private static ArrayList<Product> productArray = new ArrayList<>();
 
 		}
 	
-		public static ArrayList<Product> getAllProduct(){
-			return productArray;
-		}
+	public ArrayList<Product> getAllProduct(){ //전체 항목 불러오기
+		return productArray;
+	}
+	public static void insertProduct(Product newProduct) { // 객체를 추가
+		productArray.add(newProduct);
+	}
+	
+	
+	public void updateProduct(int index, String product_name, int product_price, int product_kcal, int product_gram, String product_catagory) {
+		Product pd = productArray.get(index);
+		pd.setName(product_name);
+		pd.setPrice(product_price);
+		pd.setKcal(product_kcal);
+		pd.setGram(product_gram);
+		pd.setCatagory(product_catagory);
+		productArray.remove(index);
+		productArray.add(pd);
 		
-		public static void addProduct(Product data) {
-			productArray.add(data);
-		}
-		
-		public static void deleteProduct(int index) {
-			productArray.remove(index);
-		}
-		
-		public static void updateProduct(int index, String name, int price, int kcal, int gram, String category) {
-			Product product = productArray.get(index);
-			product.setName(name);
-			product.setPrice(price);
-			product.setKcal(kcal);
-			product.setGram(gram);
-			product.setCatagory(category);
-			
-			productArray.remove(index);
-			productArray.add(product);
-		}
+	}// 변수값 수정
+	public void deleteProduct(int index) { // 상품번호로 삭제
+		productArray.remove(index);
+	}
+	
 }
-

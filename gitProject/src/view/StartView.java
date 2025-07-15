@@ -3,8 +3,9 @@ package view;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import controller.Controller;
-import model.domain.Product;
-import model.domain.ShoppingCart;
+
+import model.domain.ProductDTO;
+import model.domain.ShoppingCartDTO;
 import util.DBUtil;
 
 import java.sql.Connection;
@@ -43,7 +44,7 @@ public class StartView {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		ShoppingCart shoppingCart = new ShoppingCart();
+		ShoppingCartDTO shoppingCart = new ShoppingCartDTO();
 		
 		
 		selectMySQL();
@@ -71,8 +72,8 @@ public class StartView {
 			}
 			switch (num) {
 			case 1:
-				ArrayList<Product> cartList = Controller.getAllProduct();
-				for (Product b : cartList) {
+				ArrayList<ProductDTO> cartList = Controller.getAllProduct();
+				for (ProductDTO b : cartList) {
 					System.out.println(b.toString());
 				}
 				System.out.println();

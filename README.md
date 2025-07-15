@@ -1,12 +1,29 @@
 
 
-## 👥 팀원 소개
 
-- **개발자**: jihwan77, Gill010147
-- **역할**: 풀스택 개발, 데이터베이스 설계, 시스템 아키텍처
 
-<br></br>
 # JDBC 요아정 장바구니 시스템
+
+## 🦕Team
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/jihwan77">
+        <img src="https://avatars.githubusercontent.com/jihwan77" width="150px;" alt=""/>
+        <br />
+        <sub><b>황지환</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Gill010147">
+        <img src="https://avatars.githubusercontent.com/Gill010147" width="150px;" alt=""/>
+        <br />
+        <sub><b>황병길</b></sub>
+      </a>
+    
+  </tr>
+</table>
+<hr>
 
 ## 📋 프로젝트 소개
 

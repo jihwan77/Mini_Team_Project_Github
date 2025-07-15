@@ -5,15 +5,48 @@ import java.util.InputMismatchException;
 import controller.Controller;
 import model.domain.Product;
 import model.domain.ShoppingCart;
+import util.DBUtil;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class StartView {
-	public static void main(String args[]) {
+	
+	
+	
+	public static void selectMySQL() {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
 
+		try {
+			conn = DBUtil.getConnection();
+			
+			stmt = conn.createStatement();			
+			rs = stmt.executeQuery("select * from product");
+			
+			while( rs.next() ) {
+				System.out.println(rs.getInt(1) + " " + rs.getString(2) 
+									+ " " + rs.getInt(3) + " " + rs.getInt(4) + " " + rs.getInt(5) + " " + rs.getString(6) );
+			}
+			
+		} catch (Exception e) { 
+			e.printStackTrace();
+		} finally {  
+			DBUtil.close(conn, stmt, rs);
+		}
+		
+	}
+
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Controller controller = new Controller();
+		
 		ShoppingCart shoppingCart = new ShoppingCart();
+		
+		
+		selectMySQL();
 
 		Controller.getAllProduct();
 		while (true) {
@@ -49,31 +82,88 @@ public class StartView {
 				String productNumber = sc.next();
 				int productId = Integer.parseInt(productNumber);
 				
-				System.out.println("+++ " + shoppingCart.getCart());
-				
-				Controller.cartInsertProduct(productId, shoppingCart);
+				Controller.cartAddProduct(productId, shoppingCart);
 				
 				break;
 			case 3:
-//				System.out.print("제거할 상품 번호를 입력히세요 : ");
-//				 String cartList1 = sc.next();
-//				 Controller.returnBook(id);
+				System.out.print("제거할 상품 번호를 입력히세요 : ");
+				String productNumber2 = sc.next();
+				int productId2 = Integer.parseInt(productNumber2);
+				Controller.cartDeleteProduct(productId2, shoppingCart);
 				break;
 			case 4:
 				System.out.println("현재 장바구니 목록입니다 : ");
 				
-				Controller.getCartProduct(shoppingCart);
+				Controller.showCartList(shoppingCart);
 				
 				
 				break;
 			case 5:
+				System.out.println("추가할 상품 정보를 입력하세요.\n");
+				System.out.println("id입력 : ");
+				int id = sc.nextInt();
+				sc.nextLine();
+			
+				System.out.println("상품명 입력 : ");
+				String name = sc.next();
+				sc.nextLine();
+				
+				System.out.println("가격 입력 : ");
+				int price = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("kcal 입력 : ");
+				int kcal = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("gram 입력 : ");
+				int gram = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("category 입력 : ");
+				String category = sc.next();
+				sc.nextLine();
+				
+				Controller.addProduct(id, name, price, kcal, gram, category);
 
 				break;
-			case 6:
-
+			case 6: // 삭제 부분
+				System.out.println("삭제할 상품 정보를 입력하세요.\n");
+				System.out.println("id입력 : ");
+				id = sc.nextInt();
+				sc.nextLine();
+				Controller.deleteProduct(id);
+				//System.out.println("입력하신 "+ id + "가 삭제되었습니다!");
 				break;
-			case 7:
-
+			case 7: // 수정
+				System.out.println("수정을 원하는 상품의 id를 입력하시오.\n");
+				System.out.println("id입력 : ");
+				id = sc.nextInt();
+				sc.nextLine();
+			
+				System.out.println("상품명 입력 : ");
+				name = sc.next();
+				sc.nextLine();
+				
+				System.out.println("가격 입력 : ");
+				price = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("kcal 입력 : ");
+				kcal = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("gram 입력 : ");
+				gram = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("category 입력 : ");
+				category = sc.next();
+				sc.nextLine();
+				System.out.println("다음 내용이 추가되었습니다.\n");
+				System.out.println("id : " + id + ", name : " + name + ", price : " + price + ", kcal : " + kcal + ", gram : " + gram + ", category : " + category );
+				
+				Controller.updateProduct(id, name, price, kcal, gram, category);
 				break;
 			default:
 				System.out.println("잘못된 입력입니다. 다시 시도해주세요.\n");
@@ -82,4 +172,5 @@ public class StartView {
 		}
 
 	}
-}
+	}
+

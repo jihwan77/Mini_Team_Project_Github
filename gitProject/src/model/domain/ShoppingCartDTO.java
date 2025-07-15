@@ -11,22 +11,22 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ShoppingCart {
+public class ShoppingCartDTO {
 	private int id;
 	private String name;
 	private int price;
 	private int kcal;
-	private int grams;
-	private String catagory;
-	ArrayList<Product> cart = new ArrayList<>();
+	private int gram;
+	private String category;
+	ArrayList<ProductDTO> cart = new ArrayList<>();
 	
-	public ShoppingCart (int id, String name, int price, int kcal, int gram, String catagory) {
+	public ShoppingCartDTO (int id, String name, int price, int kcal, int gram, String category) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.kcal = kcal;
-		this.grams = gram;
-		this.catagory = catagory;
+		this.gram = gram;
+		this.category = category;
 	
 	}
 }

@@ -20,7 +20,7 @@ public class ProductDTO {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Product [id=");
+		builder.append("상품 id=");
 		builder.append(id);
 		builder.append(", name=");
 		builder.append(name);
@@ -32,7 +32,6 @@ public class ProductDTO {
 		builder.append(gram);
 		builder.append(", category=");
 		builder.append(category);
-		builder.append("]");
 		builder.append("\n");
 
 		return builder.toString();

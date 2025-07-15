@@ -15,8 +15,8 @@ import util.DBUtil;
 public class ProductDAO {
 	
 	private static ProductDAO model = new ProductDAO();
-//	private ProductDAO() {
-//	}
+	private ProductDAO() {
+	}
 
 	public static ProductDAO getModel() {
 		return model;
@@ -46,14 +46,14 @@ public class ProductDAO {
 
 		return all;
 	}
-	@Test // public 생성자 필요, private 생성자 주석 처리 함
-	public void test() {
-		try {
-			System.out.println(getAllProduct());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	@Test // public 생성자 필요, private 생성자 주석 처리 함
+//	public void test() {
+//		try {
+//			System.out.println(getAllProduct());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
 	
 	public static boolean addProduct(ProductDTO newProduct) throws SQLException { // 객체를 추가
@@ -61,7 +61,7 @@ public class ProductDAO {
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBUtil.getConnection();
-			pstmt = conn.prepareStatement("insert into employee values (?, ?, ?, ?, ?, ?)");
+			pstmt = conn.prepareStatement("insert into product values (?, ?, ?, ?, ?, ?)");
 			
 			pstmt.setInt(1, newProduct.getId());
 			pstmt.setString(2, newProduct.getName());
@@ -83,21 +83,20 @@ public class ProductDAO {
 	}
 	
 	
-	public static boolean updateProduct(int index, String product_name, int product_price,
+	public static boolean updateProduct(int id, String product_name, int product_price,
 			int product_kcal, int product_gram, String product_category) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBUtil.getConnection();
-			pstmt = conn.prepareStatement("update employee set index=?, product_name=?, "
-					+ "product_price=?, product_kcal, product_gram, product_category");
+			pstmt = conn.prepareStatement("update product set name=?, price=?, kcal=?, gram=?, category=? where id=?");
 			
-			pstmt.setInt(1, index);
-			pstmt.setString(2, product_name);
-			pstmt.setInt(3, product_price);
-			pstmt.setInt(4, product_kcal);
-			pstmt.setInt(5, product_gram);
-			pstmt.setString(6, product_category);
+			pstmt.setString(1, product_name);
+			pstmt.setInt(2, product_price);
+			pstmt.setInt(3, product_kcal);
+			pstmt.setInt(4, product_gram);
+			pstmt.setString(5, product_category);
+			pstmt.setInt(6, id);
 			
 			int result = pstmt.executeUpdate();
 			
@@ -111,14 +110,14 @@ public class ProductDAO {
 		return false;
 		
 	}
-	public static boolean deleteProduct(int index) throws SQLException{ // 상품번호로 삭제
+	public static boolean deleteProduct(int id) throws SQLException{ // 상품번호로 삭제
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBUtil.getConnection();
-			pstmt = conn.prepareStatement("delete from product where=?");
+			pstmt = conn.prepareStatement("delete from product where id=?");
 			
-			pstmt.setInt(1, index);
+			pstmt.setInt(1, id);
 			
 			int result = pstmt.executeUpdate();
 			

@@ -15,31 +15,7 @@ import java.util.ArrayList;
 
 public class StartView {
 	
-	
-	
-	public static void selectMySQL() {
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
 
-		try {
-			conn = DBUtil.getConnection();
-			
-			stmt = conn.createStatement();			
-			rs = stmt.executeQuery("select * from product");
-			
-			while( rs.next() ) {
-				System.out.println(rs.getInt(1) + " " + rs.getString(2) 
-									+ " " + rs.getInt(3) + " " + rs.getInt(4) + " " + rs.getInt(5) + " " + rs.getString(6) );
-			}
-			
-		} catch (Exception e) { 
-			e.printStackTrace();
-		} finally {  
-			DBUtil.close(conn, stmt, rs);
-		}
-		
-	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -47,9 +23,7 @@ public class StartView {
 		ShoppingCartDTO shoppingCart = new ShoppingCartDTO();
 		
 		
-		selectMySQL();
-
-		Controller.getAllProduct();
+		
 		while (true) {
 			int num = 0;
 			while (true) {
@@ -72,11 +46,8 @@ public class StartView {
 			}
 			switch (num) {
 			case 1:
-				ArrayList<ProductDTO> cartList = Controller.getAllProduct();
-				for (ProductDTO b : cartList) {
-					System.out.println(b.toString());
-				}
-				System.out.println();
+				Controller.getAllProduct();
+				
 				break;
 			case 2:
 				System.out.print("선택할 상품 번호를 입력하세요 : ");

@@ -15,7 +15,7 @@ public class ProductDTO {
 	private int price;
 	private int kcal;
 	private int gram;
-	private String catagory;
+	private String category;
 	
 	@Override
 	public String toString() {
@@ -30,8 +30,8 @@ public class ProductDTO {
 		builder.append(kcal);
 		builder.append(", gram=");
 		builder.append(gram);
-		builder.append(", catagory=");
-		builder.append(catagory);
+		builder.append(", category=");
+		builder.append(category);
 		builder.append("]");
 		builder.append("\n");
 

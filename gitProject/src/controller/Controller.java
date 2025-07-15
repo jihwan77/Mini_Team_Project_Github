@@ -6,8 +6,10 @@ import model.domain.*;
 
 public class Controller {
 	
-	public static ArrayList<Product> getAllProduct(){
-		return Model.getAllProduct();
+	public static ArrayList<ProductDTO> getAllProduct(){
+		Model.getAllProduct();
+		
+		return;
 	}
 	
 	public static void addProduct(int id, String name, int price, int kcal, int gram, String category) {
